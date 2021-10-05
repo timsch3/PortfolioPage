@@ -18,22 +18,28 @@ function setPos() { // set scroll position vars and show/hide navs
 
 function navigateUp() {
     if (activeSection > 0) {
-        window.scrollTo({ top: (scrollY - allSections[activeSection - 1].offsetHeight), left: 0, behavior: 'smooth' })
+        window.scrollTo({ top: (allSections[0].offsetHeight * (activeSection - 1)), left: 0, behavior: 'smooth' })
         activeSection--
     }
 }
 function navigateDown() {
     if (activeSection < allSections.length - 1) {
-        window.scrollTo({ top: scrollY + allSections[activeSection + 1].offsetHeight, left: 0, behavior: 'smooth' })
+        window.scrollTo({ top: (allSections[0].offsetHeight * (activeSection + 1)), left: 0, behavior: 'smooth' })
         activeSection++
     }
 }
 
 function hideNav(nav) {
-    nav.style.visibility = 'hidden'
+    setTimeout(makeNavInvisible(nav), 300)
+    nav.style.transform = 'scaleY(0)'
+    nav == navUp ? nav.style.transform = 'translateY(-100%)' : nav.style.transform = 'translateY(100%)'
     nav.style.cursor = 'default'
+}
+function makeNavInvisible(nav) {
+    nav.style.visibility = 'hidden'
 }
 function showNav(nav) {
     nav.style.visibility = 'visible'
+    nav.style.transform = 'scaleY(1)'
     nav.style.cursor = 'pointer'
 }
