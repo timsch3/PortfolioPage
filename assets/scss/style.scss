@@ -40,11 +40,8 @@ body {
     h1, h2 {
         padding-bottom: 1rem;
     }
-
-/* Hide scrollbar for all browsers */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-} body::-webkit-scrollbar {
+} // hide scrollbar
+body::-webkit-scrollbar {
     display: none;
 }
 
@@ -71,13 +68,16 @@ section {
     #nav-up, #nav-down {
         display: flex; justify-content: center; align-items: center;
         font-size: 3rem;
+        vertical-align: middle;
         background-color: var(--bgColor2);
         color: var(--color1);
         height: 10%;
         width: 100%;
         transition: 300ms;
         opacity: 0.4;
-        transform: scaleY(1);
+        span {
+            transform: translateY(5px); // compensation for uneven top / bottom of arrow char
+        } 
     }
     #nav-up:hover, #nav-down:hover {
         background-color: var(--bgColor3);
@@ -94,12 +94,12 @@ section {
 }
 
 @keyframes navigateUp {
-    0% {transform: translateY(0)}
-    50% {transform: translateY(-10px)}
-    100% {transform: translateY(0)}
+    0% {transform: translateY(5px)}
+    50% {transform: translateY(-5px)}
+    100% {transform: translateY(5px)}
 }
 @keyframes navigateDown {
-    0% {transform: translateY(0)}
-    50% {transform: translateY(10px)}
-    100% {transform: translateY(0)}
+    0% {transform: translateY(5px)}
+    50% {transform: translateY(15px)}
+    100% {transform: translateY(5px)}
 }
