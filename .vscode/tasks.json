@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks":
+    [
+        {
+            "label": "sass",
+            "type": "shell",
+            "command": "sass",
+            "args": [
+                "--watch",
+                "assets/scss:assets/css",
+                "--style=compressed"
+            ],
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "live-server",
+            "type": "shell",
+            "command": "live-server",
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+}
