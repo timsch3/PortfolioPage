@@ -5,7 +5,7 @@ It uses JavaScript to show and hide the up and down navigation areas according t
 
 This is meant to become my portfolio website.
 
-<br><br><br>
+<br>
 
 What I also want to add / try with this:
 - styled scrollbar
