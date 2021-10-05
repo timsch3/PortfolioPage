@@ -69,8 +69,8 @@ section {
         width: 100%;
         transition: 300ms;
         opacity: 0.4;
-        span {
-            transform: translateY(5px); // compensation for uneven top / bottom of arrow char
+        span { // compensation for uneven top / bottom of arrow char
+            transform: translateY(5px);
         } 
     }
     #nav-up:hover, #nav-down:hover {
@@ -86,7 +86,6 @@ section {
         animation: navigateDown 2s ease-in-out infinite;
     }
 }
-
 @keyframes navigateUp {
     0% {transform: translateY(5px)}
     50% {transform: translateY(-5px)}
@@ -96,4 +95,19 @@ section {
     0% {transform: translateY(5px)}
     50% {transform: translateY(15px)}
     100% {transform: translateY(5px)}
+}
+
+* { // custom scrollbars
+    scrollbar-width: thin;
+    scrollbar-color: var(--bgColor3) var(--bgColor1);
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--bgColor1);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--bgColor3);
+        border: none;
+    }
 }
