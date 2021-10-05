@@ -40,9 +40,6 @@ body {
     h1, h2 {
         padding-bottom: 1rem;
     }
-} // hide scrollbar
-body::-webkit-scrollbar {
-    display: none;
 }
 
 section {
@@ -60,7 +57,7 @@ section {
     min-height: 100vh;
     min-width: 100vw;
     background: linear-gradient(0deg, var(--bgColor2) 10%, #ffffff00 10%, #ffffff00 90%, var(--bgColor2) 90%);
-    opacity: 0.99;
+    opacity: 0.98;
     display: flex; flex-direction: column; justify-content: space-between;
     #nav-up, #nav-down {
         display: flex; justify-content: center; align-items: center;
