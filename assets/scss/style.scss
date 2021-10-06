@@ -8,15 +8,16 @@
 }
 @font-face {
     font-family: ScopeOne; // serif
-    src: url(../fonts/ScopeOne-VariableFont_wght.ttf);
+    src: url(../fonts/ScopeOne-Regular.ttf);
 }
-* { // css reset, colors, standard styles
+* { // CSS reset, colors, standard styles
     margin: 0;
     padding: 0;
 }
 :root {
     font-family: Catamaran;
     font-size: 1.5rem;
+    letter-spacing: 1px;
     --bgColor1: #152636;
     --bgColor2: #1C2D3D;
     --bgColor3: #243341;
@@ -26,33 +27,37 @@
     --color3: #D98F79;
 }
 body {
+    background-color: var(--bgColor1);
     color: var(--txtColor);
-    h1 {
+    h1 { // Portfolio heading
+        position: absolute;
+        width: 100%;
+        text-align: center;
         font-family: Courgette;
-        font-size: 2rem;
-    }
-    h2 {
-        font-family: ScopeOne;
-    }
-    h1, h2 {
-        padding-bottom: 1rem;
+        font-size: 3rem;
+        opacity: 0.6;
     }
 }
-section { // sections
+section { // Sections
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 0 4.2vw;
     height: 100vh;
     width: 100vw;
     background: var(--bgColor1);
     div {
         display: flex; justify-content: center; align-items: center;
         width: 80%;
-        img {
-            border-radius: 50%;
-            box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
-        }
         div {
-            display: flex; flex-direction: column; align-items: start;
+            display: block;
+            a > img {
+                height: 50vh;
+                width: auto;
+                box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
+                transition: 300ms;
+            }
+            a > img:hover {
+                transform: scale(1.03);
+                box-shadow: none;
+            }
         }
         #left {
             padding-right: 2rem;
@@ -60,14 +65,21 @@ section { // sections
         #right {
             padding-left: 2rem;
         }
+        #portrait {
+            border-radius: 50%;
+        }
+        #made-with {
+            font-family: ScopeOne;
+            font-size: 0.8rem;
+        }
     }
 }
-#nav-left { // navs
+#nav-left { // Navs
     height: 100vh;
     position: fixed;
     display: flex; flex-direction: column; justify-content: center;
     a {
-        height: 2rem; // fix for the a element being higher than its content
+        height: 2rem; // Fix for the a element being higher than its content
         margin: 0.5rem  0 0.5rem 0.25rem;
         svg {
             width: 2rem;
@@ -80,6 +92,7 @@ section { // sections
     }
 }
 #nav-overlay {
+    pointer-events: none;
     position: fixed;
     top: 0; bottom: 0;
     left: 0; right: 0;
@@ -89,6 +102,7 @@ section { // sections
     opacity: 0.98;
     display: flex; flex-direction: column; justify-content: space-between;
     #nav-up, #nav-down {
+        pointer-events: all;
         display: flex; justify-content: center; align-items: center;
         font-size: 3rem;
         vertical-align: middle;
@@ -98,7 +112,7 @@ section { // sections
         width: 100%;
         transition: 300ms;
         opacity: 0.4;
-        span { // compensation for uneven top / bottom of arrow char
+        span { // Compensation for uneven top / bottom of arrow char
             transform: translateY(5px);
         } 
     }
@@ -125,7 +139,7 @@ section { // sections
     50% {transform: translateY(15px)}
     100% {transform: translateY(5px)}
 }
-body { // custom scrollbars
+body { // Custom scrollbars
     scrollbar-width: thin;
     scrollbar-color: var(--bgColor3) var(--bgColor1);
     &::-webkit-scrollbar {
