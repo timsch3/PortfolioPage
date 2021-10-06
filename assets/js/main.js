@@ -4,9 +4,6 @@ let navUp = document.getElementById('nav-up')
 let navDown = document.getElementById('nav-down')
 let toTopNav = document.getElementById('nav-right')
 
-hideNav(navUp) // hide initally
-hideNav(toTopNav)
-
 function setPos() { // set scroll position vars and show/hide navs 
     activeSection = Number((scrollY / allSections[0].offsetHeight).toFixed(0))
     if (activeSection == 0) hideNav(navUp)
