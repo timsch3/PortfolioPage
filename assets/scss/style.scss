@@ -10,12 +10,10 @@
     font-family: ScopeOne; // serif
     src: url(../fonts/ScopeOne-VariableFont_wght.ttf);
 }
-
-* {
+* { // basic styles
     margin: 0;
     padding: 0;
 }
-
 :root {
     font-family: Catamaran;
     font-size: 1.5rem;
@@ -27,7 +25,6 @@
     --color2: #A4A9AB;
     --color3: #D98F79;
 }
-
 body {
     color: var(--txtColor);
     h1 {
@@ -41,14 +38,45 @@ body {
         padding-bottom: 1rem;
     }
 }
-
-section {
+section { // sections
     display: flex; flex-direction: column; align-items: center;
     justify-content: center;
     padding: 0 4.2vw;
     min-height: 90vh;
     min-width: 90vw;
     background: var(--bgColor1);
+    div {
+        display: flex; justify-content: center; align-items: center;
+        width: 90%;
+        img {
+            border-radius: 50%;
+            box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
+        }
+        div {
+            display: flex; flex-direction: column; align-items: start;
+        }
+        #left {
+            padding-right: 2rem;
+        }
+        #right {
+            padding-left: 2rem;
+        }
+    }
+}
+#nav-left { // navs
+    height: 100vh;
+    position: fixed;
+    display: flex; flex-direction: column; justify-content: center;
+    a {
+        margin: 0  0 1rem 0.25rem;
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+    a:hover > svg {
+        fill: var(--color2);
+    }
 }
 #nav-overlay {
     position: fixed;
@@ -96,8 +124,7 @@ section {
     50% {transform: translateY(15px)}
     100% {transform: translateY(5px)}
 }
-
-* { // custom scrollbars
+body { // custom scrollbars
     scrollbar-width: thin;
     scrollbar-color: var(--bgColor3) var(--bgColor1);
     &::-webkit-scrollbar {
