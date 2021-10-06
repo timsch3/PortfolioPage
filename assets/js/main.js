@@ -1,10 +1,11 @@
 let allSections = document.querySelectorAll('section')
 let activeSection = 0
-let navOverlay = document.getElementById('nav-overlay')
 let navUp = document.getElementById('nav-up')
 let navDown = document.getElementById('nav-down')
+let toTopNav = document.getElementById('nav-right')
 
 hideNav(navUp) // hide initally
+hideNav(toTopNav)
 
 function setPos() { // set scroll position vars and show/hide navs 
     activeSection = Number((scrollY / allSections[0].offsetHeight).toFixed(0))
@@ -12,8 +13,7 @@ function setPos() { // set scroll position vars and show/hide navs
     else showNav(navUp)
     if (activeSection == allSections.length - 1) hideNav(navDown)
     else showNav(navDown)
-    console.log(scrollY)
-    console.log(window.pageYOffset)
+    activeSection > 1 ? showNav(toTopNav) : hideNav(toTopNav)
 }
 
 function navigateUp() {
@@ -31,15 +31,20 @@ function navigateDown() {
 
 function hideNav(nav) {
     setTimeout(makeNavInvisible(nav), 300)
-    nav.style.transform = 'scaleY(0)'
-    nav == navUp ? nav.style.transform = 'translateY(-100%)' : nav.style.transform = 'translateY(100%)'
+    if (nav == navUp) {
+        nav.style.transform = 'translateY(-100%)'
+    } else if (nav == navDown) {
+        nav.style.transform = 'translateY(100%)'
+    } else if (nav == toTopNav) {
+        nav.style.transform = 'translateX(100%)'
+    }
     nav.style.cursor = 'default'
 }
 function makeNavInvisible(nav) {
     nav.style.visibility = 'hidden'
 }
 function showNav(nav) {
+    nav.style.transform = 'translate(0, 0)'
     nav.style.visibility = 'visible'
-    nav.style.transform = 'scaleY(1)'
     nav.style.cursor = 'pointer'
 }

@@ -16,9 +16,10 @@
     user-select: none;
 }
 :root {
+    scroll-behavior: smooth;
     font-family: Catamaran;
     font-size: 1.5rem;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     --bgColor1: #152636;
     --bgColor2: #1C2D3D;
     --bgColor3: #243341;
@@ -31,12 +32,10 @@ body {
     background-color: var(--bgColor1);
     color: var(--txtColor);
     h1 { // Portfolio heading
-        position: absolute;
-        width: 100%;
-        text-align: center;
         font-family: Courgette;
+        color: var(--color2);
         font-size: 2.4rem;
-        opacity: 0.25;
+        padding-bottom: 1rem;
     }
 }
 section { // Sections
@@ -75,13 +74,14 @@ section { // Sections
         }
     }
 }
-#nav-left { // Navs
+#x-navs { // Navs
+    pointer-events: none;
+    width: 100vw;
     height: 100vh;
     position: fixed;
-    display: flex; flex-direction: column; justify-content: center;
+    display: flex; justify-content: space-between;
     a {
         height: 2rem; // Fix for the a element being higher than its content
-        margin: 0.5rem  0 0.5rem 0.25rem;
         svg {
             width: 2rem;
             height: 2rem;
@@ -93,7 +93,18 @@ section { // Sections
         transform: scale(1.1)
     }
 }
-#nav-overlay {
+#nav-left, #nav-right {
+    pointer-events: all;
+    display: flex; flex-direction: column; justify-content: center;
+    transition: 300ms; // for JS nav-right show/hide
+}
+#nav-left a {
+    margin: 0.5rem 0 0.5rem 0.25rem;
+}
+#nav-right a {
+    margin: 0.5rem 1rem 0.5rem 0;
+}
+#y-navs {
     pointer-events: none;
     position: fixed;
     top: 0; bottom: 0;
