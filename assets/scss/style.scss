@@ -13,6 +13,7 @@
 * { // CSS reset, colors, standard styles
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 :root {
     font-family: Catamaran;
@@ -35,7 +36,8 @@ body {
         text-align: center;
         font-family: Courgette;
         font-size: 3rem;
-        opacity: 0.6;
+        opacity: 0.25;
+        padding-top: 2.5vh;
     }
 }
 section { // Sections
@@ -89,6 +91,7 @@ section { // Sections
     }
     a:hover > svg {
         fill: var(--color2);
+        transform: scale(1.1)
     }
 }
 #nav-overlay {
