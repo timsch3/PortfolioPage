@@ -78,6 +78,7 @@ section { // Sections
     width: 100vw;
     height: 100vh;
     position: fixed;
+    z-index: 1;
     display: flex; justify-content: space-between;
     a {
         height: 2rem; // Fix for the a element being higher than its content
@@ -106,6 +107,7 @@ section { // Sections
 #y-navs {
     pointer-events: none;
     position: fixed;
+    z-index: 1;
     top: 0; bottom: 0;
     left: 0; right: 0;
     min-height: 100vh;
