@@ -25,8 +25,7 @@
     --bgColor3: #243341;
     --txtColor: #F4E8CF;
     --color1: #668393;
-    --color2: #A4A9AB;
-    --color3: #D98F79;
+    --color2: #EBA253; //EBA253 CF9E3D D5744C
 }
 body {
     background-color: var(--bgColor1);
@@ -60,7 +59,7 @@ section { // Sections
             transition: 300ms;
         }
         div a > img:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
             box-shadow: none;
         }
         #portrait {
