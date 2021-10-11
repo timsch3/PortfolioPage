@@ -18,7 +18,7 @@
 :root {
     scroll-behavior: smooth;
     font-family: Catamaran;
-    font-size: 1.5rem;
+    font-size: 18px;
     letter-spacing: 1.2px;
     --bgColor1: #152636;
     --bgColor2: #1C2D3D;
@@ -27,13 +27,27 @@
     --color1: #668393;
     --color2: #CF9E3D;
 }
+@mixin svg-link($height: 2.2rem) {
+    svg {
+        width: $height;
+        height: $height;
+        vertical-align: middle;
+        transition: 300ms;
+    }
+}
+@mixin svg-link-hover {
+    svg {
+        fill: var(--color2);
+        transform: scale(1.1)  
+    }
+}
 body {
     background-color: var(--bgColor1);
     color: var(--txtColor);
     h1 { // Portfolio heading
         font-family: Courgette;
         color: var(--color2);
-        font-size: 2.4rem;
+        font-size: 2rem;
         padding-bottom: 1rem;
     }
 }
@@ -42,9 +56,10 @@ section { // Sections
     height: 100vh;
     width: 100vw;
     background: var(--bgColor1);
-    div {
+    .item {
         display: flex; justify-content: center; align-items: center;
-        width: 80%;
+        width: 70%;
+        padding-bottom: 2rem;
         div {
             display: block;
             #made-with {
@@ -53,22 +68,30 @@ section { // Sections
             }
         }
         div a > img, #portrait {
-            height: 50vh;
+            height: 25vh;
             width: auto;
             box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
             transition: 300ms;
         }
+        .repo-link {
+            @include svg-link(1.5rem);
+        }
+        .repo-link:hover{
+            @include svg-link-hover
+        }
         div a > img:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
             box-shadow: none;
         }
         #portrait {
             border-radius: 50%;
         }
-        #left {
+        .left {
+            text-align: right;
             padding-right: 2rem;
         }
-        #right {
+        .right {
+            text-align: left;
             padding-left: 2rem;
         }
     }
@@ -81,16 +104,10 @@ section { // Sections
     z-index: 1;
     display: flex; justify-content: space-between;
     a {
-        height: 2rem; // Fix for the a element being higher than its content
-        svg {
-            width: 2rem;
-            height: 2rem;
-            transition: 300ms;
-        }
+        @include svg-link
     }
-    a:hover > svg {
-        fill: var(--color2);
-        transform: scale(1.1)
+    a:hover {
+        @include svg-link-hover
     }
 }
 #nav-left, #nav-right {
@@ -102,7 +119,7 @@ section { // Sections
     margin: 0.5rem 0 0.5rem 0.25rem;
 }
 #nav-right a {
-    margin: 0.5rem 1rem 0.5rem 0;
+    margin: 0.5rem 1.5rem 0.5rem 0;
 }
 #y-navs {
     pointer-events: none;
@@ -128,7 +145,7 @@ section { // Sections
         opacity: 0.4;
         span { // Compensation for uneven top / bottom of arrow char
             transform: translateY(5px);
-        } 
+        }
     }
     #nav-up:hover, #nav-down:hover {
         background-color: var(--bgColor3);
