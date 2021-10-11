@@ -59,7 +59,7 @@ section { // Sections
     .item {
         display: flex; justify-content: center; align-items: center;
         width: 70%;
-        padding-bottom: 2rem;
+        padding: 2rem 0 2rem 0;
         div {
             display: block;
             #made-with {
