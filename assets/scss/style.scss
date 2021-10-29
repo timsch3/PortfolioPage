@@ -10,12 +10,12 @@
     font-family: ScopeOne; // serif
     src: url(../fonts/ScopeOne-Regular.ttf);
 }
-* { // CSS reset, colors, standard styles
+* { // CSS reset
     margin: 0;
     padding: 0;
     user-select: none;
 }
-:root {
+:root { // // General styles
     scroll-behavior: smooth;
     font-family: Catamaran;
     font-size: 18px;
@@ -23,6 +23,7 @@
     --bgColor1: #152636;
     --bgColor2: #1C2D3D;
     --bgColor3: #243341;
+    --bgColor4: #3C4C5D;
     --txtColor: #F4E8CF;
     --color1: #668393;
     --color2: #CF9E3D;
@@ -33,12 +34,10 @@
         height: $height;
         vertical-align: middle;
         transition: 300ms;
-    }
-}
-@mixin svg-link-hover {
-    svg {
-        fill: var(--color2);
-        transform: scale(1.1)  
+        &:hover {
+            fill: var(--color2);
+            transform: scale(1.1)  
+        }
     }
 }
 body {
@@ -51,11 +50,16 @@ body {
         padding-bottom: 1rem;
     }
 }
-section { // Sections
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+section { // ==================== SECTIONS
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
     height: 100vh;
     width: 100vw;
     background: var(--bgColor1);
+    #portrait {
+        border-radius: 50%;
+        height: 30vh; width: auto;
+        box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
+    }
     .item {
         display: flex; justify-content: center; align-items: center;
         width: 70%;
@@ -67,24 +71,17 @@ section { // Sections
                 font-size: 0.8rem;
             }
         }
-        div a > img, #portrait {
-            height: 25vh;
-            width: auto;
+        div a > img {
+            height: 25vh; width: auto;
             box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
             transition: 300ms;
+            &:hover {
+                transform: scale(1.1);
+                box-shadow: none
+            }
         }
         .repo-link {
             @include svg-link(1.5rem);
-        }
-        .repo-link:hover{
-            @include svg-link-hover
-        }
-        div a > img:hover {
-            transform: scale(1.1);
-            box-shadow: none;
-        }
-        #portrait {
-            border-radius: 50%;
         }
         .left {
             text-align: right;
@@ -96,7 +93,7 @@ section { // Sections
         }
     }
 }
-#x-navs { // Navs
+#x-navs { // ==================== NAVS HORIZONTAL
     pointer-events: none;
     width: 100vw;
     height: 100vh;
@@ -106,9 +103,6 @@ section { // Sections
     a {
         @include svg-link
     }
-    a:hover {
-        @include svg-link-hover
-    }
 }
 #nav-left, #nav-right {
     pointer-events: all;
@@ -116,19 +110,23 @@ section { // Sections
     transition: 300ms; // for JS nav-right show/hide
 }
 #nav-left a {
-    margin: 0.5rem 0 0.5rem 0.25rem;
+    margin: 0.5rem 0 0.5rem 0.5rem;
+    transform: translateX(-1000%);
+    @for $i from 1 through 6 {
+        &:nth-of-type(#{$i}) {
+            animation: x-nav-left-slide-in 500ms linear #{2000 + $i*100}ms 1 normal forwards;
+        }
+    }
 }
 #nav-right a {
     margin: 0.5rem 1.5rem 0.5rem 0;
 }
-#y-navs {
+#y-navs { // ==================== NAVS VERTICAL
     pointer-events: none;
     position: fixed;
     z-index: 1;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    min-height: 100vh;
-    min-width: 100vw;
+    top: 0; bottom: 0; left: 0; right: 0;
+    min-height: 100vh; min-width: 100vw;
     background: linear-gradient(0deg, var(--bgColor2) 10%, #ffffff00 10%, #ffffff00 90%, var(--bgColor2) 90%);
     opacity: 0.98;
     display: flex; flex-direction: column; justify-content: space-between;
@@ -143,15 +141,18 @@ section { // Sections
         width: 100%;
         transition: 300ms;
         opacity: 0.4;
-        span { // Compensation for uneven top / bottom of arrow char
+        &:hover {
+            background-color: var(--bgColor3);
+            color: var(--color2);
+            opacity: 1;
+            cursor: pointer;
+        }
+        span { // Compensation for uneven top / bottom of triangle arrow char
             transform: translateY(5px);
         }
     }
-    #nav-up:hover, #nav-down:hover {
-        background-color: var(--bgColor3);
-        color: var(--color2);
-        opacity: 1;
-        cursor: pointer;
+    #nav-down {
+        animation: highlight-y-nav 2s linear 5s 1 normal none;
     }
     #nav-up:hover span {
         animation: navigateUp 2s ease-in-out infinite;
@@ -163,6 +164,17 @@ section { // Sections
 #nav-up, #nav-right { // hide initially
     visibility: hidden;
 }
+@keyframes x-nav-left-slide-in { // ==================== ANIMATIONS
+    0% {transform: translateX(-100%)}
+    60% {transform: translateX(5%);}
+    85% {transform: translateX(-5%);}
+    100% {transform: translateX(0);}
+}
+@keyframes highlight-y-nav {
+    0% {background-color: var(bgColor2); opacity: 0.4}
+    50% {background-color: var(--bgColor4); opacity: 1}
+    100% {background-color: var(--bgColor2); opacity: 0.4}
+}
 @keyframes navigateUp {
     0% {transform: translateY(5px)}
     50% {transform: translateY(-5px)}
@@ -173,6 +185,7 @@ section { // Sections
     50% {transform: translateY(15px)}
     100% {transform: translateY(5px)}
 }
+
 body { // Custom scrollbars
     scrollbar-width: thin;
     scrollbar-color: var(--bgColor3) var(--bgColor1);

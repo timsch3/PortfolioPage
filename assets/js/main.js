@@ -4,6 +4,10 @@ let navUp = document.getElementById('nav-up')
 let navDown = document.getElementById('nav-down')
 let toTopNav = document.getElementById('nav-right')
 
+// reset on page reload
+window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+activeSection = 0
+
 function setPos() { // set scroll position vars and show/hide navs 
     activeSection = Number((scrollY / allSections[0].offsetHeight).toFixed(0))
     if (activeSection == 0) hideNav(navUp)
