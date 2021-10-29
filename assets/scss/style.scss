@@ -20,6 +20,7 @@
     font-family: Catamaran;
     font-size: 18px;
     letter-spacing: 1.2px;
+    --bgColor0: #142434;
     --bgColor1: #152636;
     --bgColor2: #1C2D3D;
     --bgColor3: #243341;
@@ -54,7 +55,7 @@ section { // ==================== SECTIONS
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     height: 100vh;
     width: 100vw;
-    background: var(--bgColor1);
+    background: linear-gradient(-5deg, var(--bgColor0), var(--bgColor0) 20%, var(--bgColor1) 20%, var(--bgColor1) 40%, var(--bgColor0) 40%, var(--bgColor0) 60%, var(--bgColor1) 60%, var(--bgColor1) 80%, var(--bgColor0) 80%, var(--bgColor0) 100%);
     #portrait {
         border-radius: 50%;
         height: 30vh; width: auto;
@@ -118,8 +119,10 @@ section { // ==================== SECTIONS
         }
     }
 }
-#nav-right a {
-    margin: 0.5rem 1.5rem 0.5rem 0;
+#nav-right {
+    @include svg-link;
+    justify-content: flex-end;
+    margin: 0.5rem 1.5rem calc(10vh + 0.5rem) 0;
 }
 #y-navs { // ==================== NAVS VERTICAL
     pointer-events: none;
@@ -152,7 +155,7 @@ section { // ==================== SECTIONS
         }
     }
     #nav-down {
-        animation: highlight-y-nav 2s linear 5s 1 normal none;
+        animation: highlight-y-nav 2.2s ease-in-out 5s 1 normal none;
     }
     #nav-up:hover span {
         animation: navigateUp 2s ease-in-out infinite;

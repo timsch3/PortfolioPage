@@ -1,31 +1,32 @@
-let allSections = document.querySelectorAll('section')
+let sections = document.querySelectorAll('section')
 let activeSection = 0
 let navUp = document.getElementById('nav-up')
 let navDown = document.getElementById('nav-down')
 let toTopNav = document.getElementById('nav-right')
 
-// reset on page reload
-window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-activeSection = 0
+scrollToTop() // reset on page reload
 
-function setPos() { // set scroll position vars and show/hide navs 
-    activeSection = Number((scrollY / allSections[0].offsetHeight).toFixed(0))
-    if (activeSection == 0) hideNav(navUp)
-    else showNav(navUp)
-    if (activeSection == allSections.length - 1) hideNav(navDown)
-    else showNav(navDown)
+function scrollToTop() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    activeSection = 0
+}
+
+function setPos() { // set scroll position vars and show/hide navs
+    activeSection = Number((scrollY / sections[0].offsetHeight).toFixed(0))
+    activeSection == 0 ? hideNav(navUp) : showNav(navUp)
+    activeSection == sections.length - 1 ? hideNav(navDown) : showNav(navDown)
     activeSection > 1 ? showNav(toTopNav) : hideNav(toTopNav)
 }
 
 function navigateUp() {
     if (activeSection > 0) {
-        window.scrollTo({ top: (allSections[0].offsetHeight * (activeSection - 1)), left: 0, behavior: 'smooth' })
+        window.scrollTo({ top: (sections[0].offsetHeight * (activeSection - 1)), left: 0, behavior: 'smooth' })
         activeSection--
     }
 }
 function navigateDown() {
-    if (activeSection < allSections.length - 1) {
-        window.scrollTo({ top: (allSections[0].offsetHeight * (activeSection + 1)), left: 0, behavior: 'smooth' })
+    if (activeSection < sections.length - 1) {
+        window.scrollTo({ top: (sections[0].offsetHeight * (activeSection + 1)), left: 0, behavior: 'smooth' })
         activeSection++
     }
 }
@@ -37,7 +38,7 @@ function hideNav(nav) {
     } else if (nav == navDown) {
         nav.style.transform = 'translateY(100%)'
     } else if (nav == toTopNav) {
-        nav.style.transform = 'translateX(100%)'
+        nav.style.transform = 'translateX(200%)'
     }
     nav.style.cursor = 'default'
 }
