@@ -94,7 +94,7 @@ section { // ==================== SECTIONS
             transition: 300ms;
             &:hover {
                 transform: scale(1.1);
-                box-shadow: 0 0 0 10px var(--color2);
+                box-shadow: 0 0 0 5px var(--color3);
             }
         }
         .repo-link {
