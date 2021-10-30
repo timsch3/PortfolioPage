@@ -22,12 +22,16 @@
     letter-spacing: 1.2px;
     --bgColor0: #142434;
     --bgColor1: #152636;
+    --bgColor1-1: #162738;
     --bgColor2: #1C2D3D;
     --bgColor3: #243341;
     --bgColor4: #3C4C5D;
     --txtColor: #F4E8CF;
+    --borderColor1: #562431;
+    --borderColor2: #5C303A;
     --color1: #668393;
     --color2: #CF9E3D;
+    --color3: #CA3B45;
 }
 @mixin svg-link($height: 2.2rem) {
     svg {
@@ -36,10 +40,13 @@
         vertical-align: middle;
         transition: 300ms;
         &:hover {
-            fill: var(--color2);
+            fill: var(--color3);
             transform: scale(1.1)  
         }
     }
+}
+@mixin box-shadow-border {
+    box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
 }
 body {
     background-color: var(--bgColor1);
@@ -55,11 +62,20 @@ section { // ==================== SECTIONS
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(-5deg, var(--bgColor0), var(--bgColor0) 20%, var(--bgColor1) 20%, var(--bgColor1) 40%, var(--bgColor0) 40%, var(--bgColor0) 60%, var(--bgColor1) 60%, var(--bgColor1) 80%, var(--bgColor0) 80%, var(--bgColor0) 100%);
+    background: linear-gradient(-5deg, 
+    var(--bgColor0) 0%, var(--bgColor0) 20%, 
+    var(--bgColor1-1) 20%, var(--bgColor1-1) 22%, 
+    var(--bgColor1) 22%, var(--bgColor1) 40%, 
+    var(--bgColor1-1) 40%, var(--bgColor1-1) 42%, 
+    var(--bgColor0) 42%, var(--bgColor0) 60%, 
+    var(--bgColor1-1) 60%, var(--bgColor1-1) 62%, 
+    var(--bgColor1) 62%, var(--bgColor1) 80%, 
+    var(--bgColor1-1) 80%, var(--bgColor1-1) 82%,
+    var(--bgColor0) 82%, var(--bgColor0) 100%);
     #portrait {
         border-radius: 50%;
         height: 30vh; width: auto;
-        box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
+        @include box-shadow-border;
     }
     .item {
         display: flex; justify-content: center; align-items: center;
@@ -74,11 +90,11 @@ section { // ==================== SECTIONS
         }
         div a > img {
             height: 25vh; width: auto;
-            box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
+            @include box-shadow-border;
             transition: 300ms;
             &:hover {
                 transform: scale(1.1);
-                box-shadow: none
+                box-shadow: 0 0 0 10px var(--color2);
             }
         }
         .repo-link {
