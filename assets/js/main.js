@@ -1,21 +1,37 @@
 let sections = document.querySelectorAll('section')
 let activeSection = 0
+let lastActiveSection = null
 let navUp = document.getElementById('nav-up')
 let navDown = document.getElementById('nav-down')
 let toTopNav = document.getElementById('nav-right')
 
-scrollToTop() // reset on page reload
+reset()
 
-function scrollToTop() {
+function reset() {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     activeSection = 0
+    lastActiveSection = null
+    slideInItems(activeSection)
 }
 
-function setPos() { // set scroll position vars and show/hide navs
+function setActiveSection() {
     activeSection = Number((scrollY / sections[0].offsetHeight).toFixed(0))
+    if (lastActiveSection != activeSection) {
+        showHideNavs()
+        slideInItems(activeSection)
+        lastActiveSection = activeSection
+    }
+}
+
+function showHideNavs() {
     activeSection == 0 ? hideNav(navUp) : showNav(navUp)
     activeSection == sections.length - 1 ? hideNav(navDown) : showNav(navDown)
     activeSection > 1 ? showNav(toTopNav) : hideNav(toTopNav)
+}
+
+function slideInItems(section) {
+    let divs = [...sections[section].getElementsByClassName('left'), ...sections[section].getElementsByClassName('right')]
+    divs.forEach((elt) => elt.setAttribute('style', 'animation: slide-in 600ms cubic-bezier(.36,1.14,.64,1) 0s 1 normal forwards'))
 }
 
 function navigateUp() {

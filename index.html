@@ -17,14 +17,15 @@
     <script src="assets/js/main.js" defer></script>
 </head>
 
-<body on onscroll="setInterval(setPos, 50)" id="top">
+<body onscroll="setInterval(setActiveSection, 50)">
+    <!-- ============================================================ NAVIGATIONS -->
     <div id="y-navs">
         <div onclick="navigateUp()" id="nav-up"><span>▲</span></div>
         <div onclick="navigateDown()" id="nav-down"><span>▼</span></div>
     </div>
     <div id="x-navs">
         <div id="nav-left">
-            <a href="mailto:timsch@posteo.de" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+            <a href="mailto:mail@timschilling.net" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="#668393">
                     <path
                         d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z" />
@@ -57,13 +58,14 @@
         </div>
         <div id="nav-right">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#668393"
-                onclick="scrollToTop()">
+                onclick="reset()">
                 <path
                     d="M12 24c6.627 0 12-5.373 12-12s-5.373-12-12-12-12 5.373-12 12 5.373 12 12 12zm0-22c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm2 14h-4v-1h4v1zm0 1v1h-4v-1h4zm-4-6h-4l6-6 6 6h-4v3h-4v-3z" />
             </svg>
         </div>
     </div>
     <section>
+        <!-- ============================================================ SECTIONS -->
         <div class='item'>
             <div class="left">
                 <img src="assets/img/me.png" alt="Me" id="portrait">
@@ -73,13 +75,13 @@
                     Welcome to my portfolio
                 </h1>
                 <p>
-                    Hi! My name is Tim and I’m a Frontend Web Developer looking for a remote job in part-time.<br>
-                    I’m a creative mind that values traits like honesty and openness as well as ideals like equality and
-                    sustainability.<br>
-                    After checking out many different fields I decided to make Web Development my profession combining
-                    my lifelong passion for IT, personal strengths like my tendency to optimize and my artistic
-                    skills.<br>
-                    Please use the navigation below to see some examples of my work and don’t hesitate to contact me!
+                    Heyhey! 👋 My name is Tim and I’m a Frontend Web Developer looking for a remote job in part-time at
+                    a socially and environmentally responsible company — interesting projects to collaborate in or
+                    freelance opportunities are welcome, too!<br>
+                    After working as a musician and in the social sector I decided to make Web Development my profession
+                    combining my lifelong passion for IT, personal strengths like my tendency to optimize and my
+                    artistic skills.<br>
+                <p class="p-half-br">Feel free to connect if you’d like to work with me.</p>
                 </p>
             </div>
         </div>
@@ -90,7 +92,7 @@
                 <h3>
                     All contents of this movies website are dynamically integrated data taken from an API.
                 </h3>
-                <p id="made-with">
+                <p class="made-with">
                     Node.js, Express.js, EJS, axios, CSS <a href="https://github.com/timsch3/MovieMagic" target="_blank"
                         class='repo-link'><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#668393">
                             <path d="m0 0h24v24h-24z" fill="none" ; />
@@ -99,7 +101,7 @@
                         </svg></a>
                 </p>
             </div>
-            <div class="right">
+            <div class="right" class="initiallyVisible">
                 <a href="https://murmuring-harbor-53323.herokuapp.com/" target="_blank"><img
                         src="assets/img/moviemagic.png" alt="Movie Magic"></a>
             </div>
@@ -115,7 +117,7 @@
                 <h3>
                     A sortable movies database with a search function I made using React.
                 </h3>
-                <p id="made-with">
+                <p class="made-with">
                     React, CSS <a href="https://github.com/timsch3/ReactMoviesDatabaseExercise" target="_blank"
                         class='repo-link'><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#668393">
                             <path d="m0 0h24v24h-24z" fill="none" ; />
@@ -131,7 +133,7 @@
                     This cocktail recipes app was a team effort and made using API calls, React components and dynamic
                     routing.
                 </h3>
-                <p id="made-with">
+                <p class="made-with">
                     React, React Router, CSS <a href="https://github.com/timsch3/SuperCode-Frontend-Abschlussprojekt"
                         target="_blank" class='repo-link'><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                             fill="#668393">
@@ -158,7 +160,7 @@
                     Play memory with randomly generated picture pairs and language detection automatically translating
                     the instructions.
                 </h3>
-                <p id="made-with">
+                <p class="made-with">
                     HTML, SCSS, JavaScript <a href="https://github.com/timsch3/MemoryGame" target="_blank"
                         class='repo-link'><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#668393">
                             <path d="m0 0h24v24h-24z" fill="none" ; />
@@ -174,7 +176,7 @@
                     A rock paper scissors game with an adjustable amount of rounds played against a randomized computer
                     opponent.
                 </h3>
-                <p id="made-with">
+                <p class="made-with">
                     HTML, SCSS, JavaScript <a href="https://github.com/timsch3/RockPaperScissors" target="_blank"
                         class='repo-link'><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#668393">
                             <path d="m0 0h24v24h-24z" fill="none" ; />
@@ -200,7 +202,7 @@
                 <h3>
                     Created a gallery with mouseover overlay descriptions made using CSS Grid.
                 </h3>
-                <p id="made-with">
+                <p class="made-with">
                     HTML, CSS <a href="https://github.com/timsch3/GridGallery" target="_blank" class='repo-link'><svg
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#668393">
                             <path d="m0 0h24v24h-24z" fill="none" ; />
@@ -215,7 +217,7 @@
                 <h3>
                     This simple but functional pomodoro clock supports mobile devices.
                 </h3>
-                <p id="made-with">
+                <p class="made-with">
                     HTML, CSS, JavaScript <a href="https://github.com/timsch3/PomodoroClock" target="_blank"
                         class='repo-link'><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#668393">
                             <path d="m0 0h24v24h-24z" fill="none" ; />
