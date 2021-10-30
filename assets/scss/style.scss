@@ -13,7 +13,6 @@
 * { // CSS reset
     margin: 0;
     padding: 0;
-    user-select: none;
 }
 :root { // General styles
     scroll-behavior: smooth;
@@ -46,6 +45,7 @@
 @mixin box-shadow-border($scale) {
     box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
     transition: 300ms;
+    user-select: none;
             &:hover {
                 transform: scale($scale);
                 box-shadow: 0 0 0 5px var(--color3);
@@ -127,7 +127,7 @@ section { // ==================== SECTIONS
     }
 }
 #nav-left, #nav-right {
-    pointer-events: all;
+    pointer-events: all; user-select: none;
     display: flex; flex-direction: column; justify-content: center;
     transition: 300ms; // for JS nav-right show/hide
 }
@@ -155,7 +155,7 @@ section { // ==================== SECTIONS
     opacity: 0.98;
     display: flex; flex-direction: column; justify-content: space-between;
     #nav-up, #nav-down {
-        pointer-events: all;
+        pointer-events: all; user-select: none;
         display: flex; justify-content: center; align-items: center;
         font-size: 3rem;
         vertical-align: middle;
