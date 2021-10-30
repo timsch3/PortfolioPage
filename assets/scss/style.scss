@@ -27,8 +27,6 @@
     --bgColor3: #243341;
     --bgColor4: #3C4C5D;
     --txtColor: #F4E8CF;
-    --borderColor1: #562431;
-    --borderColor2: #5C303A;
     --color1: #668393;
     --color2: #CF9E3D;
     --color3: #CA3B45;
@@ -45,8 +43,13 @@
         }
     }
 }
-@mixin box-shadow-border {
+@mixin box-shadow-border($scale) {
     box-shadow: 0 0 0 10px var(--bgColor3), 0 0 0 20px var(--bgColor2);
+    transition: 300ms;
+            &:hover {
+                transform: scale($scale);
+                box-shadow: 0 0 0 5px var(--color3);
+            }
 }
 body {
     background-color: var(--bgColor1);
@@ -75,7 +78,7 @@ section { // ==================== SECTIONS
     #portrait {
         border-radius: 50%;
         height: 30vh; width: auto;
-        @include box-shadow-border;
+        @include box-shadow-border(1);
     }
     .p-half-br {
         margin-top: 0.5rem;
@@ -94,12 +97,7 @@ section { // ==================== SECTIONS
         }
         div a > img {
             height: 25vh; width: auto;
-            @include box-shadow-border;
-            transition: 300ms;
-            &:hover {
-                transform: scale(1.1);
-                box-shadow: 0 0 0 5px var(--color3);
-            }
+            @include box-shadow-border(1.1);
         }
         .repo-link {
             @include svg-link(1.5rem);
