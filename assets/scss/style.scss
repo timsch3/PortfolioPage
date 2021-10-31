@@ -61,10 +61,9 @@ body {
         padding-bottom: 1rem;
     }
 }
-section { // ==================== SECTIONS
+section { // ============================== SECTIONS
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    height: 100vh;
-    width: 100vw;
+    width: 100vw; height: 100vh;
     background: linear-gradient(-5deg, 
     var(--bgColor0) 0%, var(--bgColor0) 20%, 
     var(--bgColor1-1) 20%, var(--bgColor1-1) 22%, 
@@ -86,7 +85,7 @@ section { // ==================== SECTIONS
     .item {
         display: flex; justify-content: center; align-items: center;
         width: 70%;
-        padding: 2rem 0 2rem 0;
+        padding: 2rem 0;
         div {
             display: block;
             .made-with {
@@ -106,7 +105,6 @@ section { // ==================== SECTIONS
             text-align: right;
             padding-right: 2rem;
             transform: translateX(-150%);
-            animation: name duration timing-function delay iteration-count direction fill-mode;
         }
         .right {
             text-align: left;
@@ -115,7 +113,7 @@ section { // ==================== SECTIONS
         }
     }
 }
-#x-navs { // ==================== NAVS HORIZONTAL
+#x-navs { // ============================== NAVS HORIZONTAL
     pointer-events: none;
     width: 100vw;
     height: 100vh;
@@ -131,6 +129,9 @@ section { // ==================== SECTIONS
     display: flex; flex-direction: column; justify-content: center;
     transition: 300ms; // for JS nav-right show/hide
 }
+#nav-left #mobile-menu-checkbox, #mobile-menu-svg {
+    display: none;
+}
 #nav-left a {
     margin: 0.5rem 0 0.5rem 0.5rem;
     transform: translateX(-1000%);
@@ -145,7 +146,7 @@ section { // ==================== SECTIONS
     justify-content: flex-end;
     margin: 0.5rem 1.5rem calc(10vh + 0.5rem) 0;
 }
-#y-navs { // ==================== NAVS VERTICAL
+#y-navs { // ============================== NAVS VERTICAL
     pointer-events: none;
     position: fixed;
     z-index: 1;

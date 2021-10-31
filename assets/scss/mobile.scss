@@ -1,0 +1,116 @@
+@media only screen and (max-width: 1150px) {
+    section {
+        #portrait {
+            height: 25vh
+        }
+        .item {
+            width: 80%;
+            div a > img {
+                height: 20vh;
+            }
+        }       
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    @mixin svg-bg {
+        svg {
+            border-radius: 50%;
+            background-color: var(--bgColor0);
+        }
+    }
+    #y-navs { // ============================== NAVIGATIONS
+        display: none;
+    }
+    #nav-left {
+        justify-content: start;
+        @include svg-bg;
+        & >svg {
+            z-index: 10;
+        }
+        a:nth-of-type(n){
+            animation: none;
+            transform: translateX(0%);
+            transform: translateY(-100vh);
+            transition: 600ms;
+            @include svg-bg;
+        }
+    }
+    #nav-left #mobile-menu-checkbox, #mobile-menu-svg {
+        display: block;
+        width: 2.2rem; height: 2.2rem;
+        margin: 0.5rem 0 1rem 0.5rem;
+    }
+    #mobile-menu-checkbox {
+        position: absolute;
+        z-index: 100;
+        opacity: 0;
+        +svg {
+            fill: var(--color1);
+            transform: scale(1);
+            transition: 300ms;
+        }
+        &~a {
+            transform: translateY(-100vh);
+        }
+        &:hover {
+            cursor: pointer;
+            &+svg {
+                fill: var(--color3);
+                transform: scale(1.1);
+            }
+        }
+        +svg:not(:checked) {
+            fill: var(--color1);
+            transform: scale(1);
+        }
+        &:checked +svg{
+            fill: var(--color3);
+            transform: scale(1.1);
+        }
+        &:checked ~a{
+            transform: translateY(0vh);
+        }
+    }
+    #nav-right {
+        visibility: visible;
+        transform: translateX(0%);
+        margin: 0 1rem 0.5rem 0;
+        cursor: pointer;
+        @include svg-bg;
+    }
+    section { // ============================== SECTIONS
+        &:first-of-type {
+            min-height: 100vh;
+            padding-bottom: 3rem;
+        }
+        width: auto; height: auto;
+        &:nth-child(odd) {
+            .item:nth-child(1) {
+                flex-direction: column;
+            }
+            .item:nth-child(2) {
+                flex-direction: column-reverse;
+            }
+        }
+        &:nth-child(even) {
+            .item:nth-child(1) {
+                flex-direction: column;
+            }
+            .item:nth-child(2) {
+                flex-direction: column-reverse;
+            }
+        }
+        .item {
+            width: 95%; height: auto;
+            flex-direction: column;
+            .left, .right, div {
+                padding: 0.5rem 0;
+                display: flex; flex-direction: column;
+                transform: translateX(0%);
+                text-align: center;
+                display: flex;
+            }
+        }
+    }
+}
