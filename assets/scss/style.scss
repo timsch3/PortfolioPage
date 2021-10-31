@@ -61,6 +61,11 @@ body {
         padding-bottom: 1rem;
     }
 }
+#portrait {
+    border-radius: 50%;
+    height: 30vh; width: auto;
+    @include box-shadow-border(1);
+}
 section { // ============================== SECTIONS
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     width: 100vw; height: 100vh;
@@ -74,11 +79,6 @@ section { // ============================== SECTIONS
     var(--bgColor1) 62%, var(--bgColor1) 80%, 
     var(--bgColor1-1) 80%, var(--bgColor1-1) 82%,
     var(--bgColor0) 82%, var(--bgColor0) 100%);
-    #portrait {
-        border-radius: 50%;
-        height: 30vh; width: auto;
-        @include box-shadow-border(1);
-    }
     .p-half-br {
         margin-top: 0.5rem;
     }
@@ -129,7 +129,7 @@ section { // ============================== SECTIONS
     display: flex; flex-direction: column; justify-content: center;
     transition: 300ms; // for JS nav-right show/hide
 }
-#nav-left #mobile-menu-checkbox, #mobile-menu-svg {
+#mobile-menu-checkbox, #mobile-menu-svg {
     display: none;
 }
 #nav-left a {
@@ -155,36 +155,36 @@ section { // ============================== SECTIONS
     background: linear-gradient(0deg, var(--bgColor2) 10%, #ffffff00 10%, #ffffff00 90%, var(--bgColor2) 90%);
     opacity: 0.98;
     display: flex; flex-direction: column; justify-content: space-between;
-    #nav-up, #nav-down {
-        pointer-events: all; user-select: none;
-        display: flex; justify-content: center; align-items: center;
-        font-size: 3rem;
-        vertical-align: middle;
-        background-color: var(--bgColor2);
-        color: var(--color1);
-        height: 10%;
-        width: 100%;
-        transition: 300ms;
-        opacity: 0.4;
-        &:hover {
-            background-color: var(--bgColor3);
-            color: var(--color2);
-            opacity: 1;
-            cursor: pointer;
-        }
-        span { // Compensation for uneven top / bottom of triangle arrow char
-            transform: translateY(5px);
-        }
+}
+#nav-up, #nav-down {
+    pointer-events: all; user-select: none;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 3rem;
+    vertical-align: middle;
+    background-color: var(--bgColor2);
+    color: var(--color1);
+    height: 10%;
+    width: 100%;
+    transition: 300ms;
+    opacity: 0.4;
+    &:hover {
+        background-color: var(--bgColor3);
+        color: var(--color2);
+        opacity: 1;
+        cursor: pointer;
     }
-    #nav-down {
-        animation: highlight-y-nav 2.2s ease-in-out 5s 1 normal none;
+    span { // Compensation for uneven top / bottom of triangle arrow char
+        transform: translateY(5px);
     }
-    #nav-up:hover span {
-        animation: navigate-up 2s ease-in-out infinite;
-    }
-    #nav-down:hover span {
-        animation: navigate-down 2s ease-in-out infinite;
-    }
+}
+#nav-down {
+    animation: highlight-y-nav 2.2s ease-in-out 5s 1 normal none;
+}
+#nav-up:hover span {
+    animation: navigate-up 2s ease-in-out infinite;
+}
+#nav-down:hover span {
+    animation: navigate-down 2s ease-in-out infinite;
 }
 #nav-up, #nav-right { // hide initially
     visibility: hidden;
