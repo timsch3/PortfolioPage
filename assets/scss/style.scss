@@ -60,6 +60,9 @@ body {
         font-size: 2rem;
         padding-bottom: 1rem;
     }
+    svg {
+        fill: var(--color1)
+    }
 }
 #portrait {
     border-radius: 50%;
