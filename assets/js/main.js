@@ -4,6 +4,8 @@ let lastActiveSection = null
 let navUp = document.getElementById('nav-up')
 let navDown = document.getElementById('nav-down')
 let toTopNav = document.getElementById('nav-right')
+let mobileMenuVisible = false
+let navLeftAnchors = document.getElementById('nav-left').querySelectorAll('a')
 
 reset()
 
@@ -12,6 +14,16 @@ function reset() {
     activeSection = 0
     lastActiveSection = null
     slideInItems(activeSection)
+}
+
+function showHideMobileMenu() {
+    if (mobileMenuVisible) {
+        navLeftAnchors.forEach((elt) => elt.setAttribute('style', 'transform: translateY(-100vh);'))
+        mobileMenuVisible = false
+    } else {
+        navLeftAnchors.forEach((elt) => elt.setAttribute('style', 'transform: translateY(0vh);'))
+        mobileMenuVisible = true
+    }
 }
 
 function setActiveSection() {

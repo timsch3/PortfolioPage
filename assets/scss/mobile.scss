@@ -36,40 +36,15 @@
             @include svg-bg;
         }
     }
-    #mobile-menu-checkbox, #mobile-menu-svg {
+    #mobile-menu-svg {
         display: block;
         width: 2.2rem; height: 2.2rem;
         margin: 0.5rem 0 1rem 0.5rem;
-    }
-    #mobile-menu-checkbox {
-        position: absolute;
-        z-index: 100;
-        opacity: 0;
-        +svg {
-            fill: var(--color1);
-            transform: scale(1);
-            transition: 300ms;
-        }
-        &~a {
-            transform: translateY(-100vh);
-        }
+        transition: 300ms;
         &:hover {
-            cursor: pointer;
-            &+svg {
-                fill: var(--color3);
-                transform: scale(1.1);
-            }
-        }
-        +svg:not(:checked) {
-            fill: var(--color1);
-            transform: scale(1);
-        }
-        &:checked +svg{
             fill: var(--color3);
             transform: scale(1.1);
-        }
-        &:checked ~a{
-            transform: translateY(0vh);
+            cursor: pointer;
         }
     }
     #nav-right {
