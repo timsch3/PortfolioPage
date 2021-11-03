@@ -5,6 +5,7 @@ let navUp = document.getElementById('nav-up')
 let navDown = document.getElementById('nav-down')
 let toTopNav = document.getElementById('nav-right')
 let mobileMenuVisible = false
+let mobileMenuSvg = document.getElementById('mobile-menu-svg')
 let navLeftAnchors = document.getElementById('nav-left').querySelectorAll('a')
 
 reset()
@@ -19,9 +20,13 @@ function reset() {
 function showHideMobileMenu() {
     if (mobileMenuVisible) {
         navLeftAnchors.forEach((elt) => elt.setAttribute('style', 'transform: translateY(-100vh);'))
+        mobileMenuSvg.style.fill = '#668393'
+        mobileMenuSvg.style.transform = 'scale(1)'
         mobileMenuVisible = false
     } else {
         navLeftAnchors.forEach((elt) => elt.setAttribute('style', 'transform: translateY(0vh);'))
+        mobileMenuSvg.style.fill = 'var(--color3)'
+        mobileMenuSvg.style.transform = 'scale(1.1)'
         mobileMenuVisible = true
     }
 }

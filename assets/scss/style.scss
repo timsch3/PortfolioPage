@@ -129,7 +129,7 @@ section { // ============================== SECTIONS
     display: flex; flex-direction: column; justify-content: center;
     transition: 300ms; // for JS nav-right show/hide
 }
-#mobile-menu-checkbox, #mobile-menu-svg {
+#mobile-menu-svg {
     display: none;
 }
 #nav-left a {
