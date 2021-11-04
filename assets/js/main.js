@@ -1,30 +1,32 @@
-let sections = document.querySelectorAll('section')
+const sections = document.querySelectorAll('section')
 let activeSection = 0
 let lastActiveSection = null
-let navUp = document.getElementById('nav-up')
-let navDown = document.getElementById('nav-down')
-let toTopNav = document.getElementById('nav-right')
-let mobileMenuVisible = false
-let mobileMenuSvg = document.getElementById('mobile-menu-svg')
-let navLeftAnchors = document.getElementById('nav-left').querySelectorAll('a')
+const navUp = document.getElementById('nav-up')
+const navDown = document.getElementById('nav-down')
+const toTopNav = document.getElementById('nav-right')
+const toTopNavSvg = document.getElementById('to-top-nav-svg')
+let mobileMenuOn = false
+const mobileMenuSvg = document.getElementById('mobile-menu-svg')
+const navLeftAnchors = document.getElementById('nav-left').querySelectorAll('a')
 
 reset()
 
 function showHideMobileMenu() {
-    if (mobileMenuVisible) {
-        navLeftAnchors.forEach((elt) => elt.setAttribute('style', 'transform: translateY(-100vh);'))
+    if (mobileMenuOn) {
+        navLeftAnchors.forEach((elt) => elt.setAttribute('style', 'transform: translateX(-100vw);'))
         mobileMenuSvg.style.fill = 'var(--color1)'
         mobileMenuSvg.style.transform = 'scale(1)'
-        mobileMenuVisible = false
+        mobileMenuOn = false
     } else {
-        navLeftAnchors.forEach((elt) => elt.setAttribute('style', 'transform: translateY(0vh);'))
+        navLeftAnchors.forEach((elt) => elt.setAttribute('style', 'transform: translateX(0vh);'))
         mobileMenuSvg.style.fill = 'var(--color3)'
         mobileMenuSvg.style.transform = 'scale(1.1)'
-        mobileMenuVisible = true
+        mobileMenuOn = true
     }
 }
 
 function reset() {
+    toTopNavSvg.style.fill = 'var(--color3)'
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     activeSection = 0
     lastActiveSection = null
@@ -72,6 +74,7 @@ function hideNav(nav) {
         nav.style.transform = 'translateY(100%)'
     } else if (nav == toTopNav) {
         nav.style.transform = 'translateX(200%)'
+        setTimeout(function () { toTopNavSvg.style.fill = 'var(--color1)' }, 300)
     }
     nav.style.cursor = 'default'
 }
