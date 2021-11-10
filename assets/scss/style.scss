@@ -36,6 +36,7 @@
         height: $height;
         vertical-align: middle;
         transition: 300ms;
+        fill: var(--color1);
         &:hover, &:active {
             fill: var(--color3);
             transform: scale(1.1)
@@ -61,9 +62,6 @@ body {
         color: var(--color2);
         font-size: 2rem;
         padding-bottom: 1rem;
-    }
-    svg {
-        fill: var(--color1)
     }
 }
 #portrait {

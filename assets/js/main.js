@@ -26,7 +26,9 @@ function showHideMobileMenu() {
 }
 
 function reset() {
-    toTopNavSvg.style.fill = 'var(--color3)'
+    if (window.innerWidth <= 768) { // check if on mobile for correct styling of the toTopNav
+        toTopNavSvg.style.fill = 'var(--color3)'
+    }
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     activeSection = 0
     lastActiveSection = null
@@ -74,7 +76,9 @@ function hideNav(nav) {
         nav.style.transform = 'translateY(100%)'
     } else if (nav == toTopNav) {
         nav.style.transform = 'translateX(200%)'
-        setTimeout(function () { toTopNavSvg.style.fill = 'var(--color1)' }, 300)
+        if (window.innerWidth <= 768) { // check if on mobile for correct styling of the toTopNav
+            setTimeout(function () { toTopNavSvg.style.fill = 'var(--color1)' }, 300)
+        }
     }
     nav.style.cursor = 'default'
 }

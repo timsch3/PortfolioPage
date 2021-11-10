@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 1150px) { // ==================== Smaller browser windows
     #portrait {
         height: 25vh
     }
@@ -12,7 +12,7 @@
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) { // ==================== Mobile devices
     :root {
         -webkit-tap-highlight-color: transparent;
     }
@@ -48,6 +48,7 @@
         width: 2.2rem; height: 2.2rem;
         margin: 0.3rem 0.5rem 0.3rem 0.3rem;
         transition: 300ms;
+        fill: var(--color1);
         &:hover {
             fill: var(--color3);
             transform: scale(1.1);
