@@ -1,103 +1,118 @@
-@media only screen and (max-width: 1150px) { // ==================== Smaller browser windows
-    #portrait {
-        height: 25vh
+@media only screen and (max-width: 1150px) {
+  // ==================== Smaller browser windows
+  #portrait {
+    height: 25vh;
+  }
+  section {
+    .item {
+      width: 80%;
+      div a > img {
+        height: 20vh;
+      }
     }
-    section {
-        .item {
-            width: 80%;
-            div a > img {
-                height: 20vh;
-            }
-        }       
-    }
+  }
 }
 
-@media only screen and (max-width: 768px) { // ==================== Mobile devices
-    :root {
-        -webkit-tap-highlight-color: transparent;
+@media only screen and (max-width: 768px) {
+  // ==================== Mobile devices
+  :root {
+    -webkit-tap-highlight-color: transparent;
+  }
+  @mixin svg-bg {
+    svg {
+      border-radius: 50%;
+      background-color: var(--bgColor0);
     }
-    @mixin svg-bg {
-        svg {
-            border-radius: 50%;
-            background-color: var(--bgColor0);
-        }
+  }
+  #y-navs {
+    // ============================== NAVIGATIONS
+    display: none;
+  }
+  #nav-left {
+    width: 100vw;
+    height: fit-content;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    @include svg-bg;
+    & > svg {
+      z-index: 10;
     }
-    #y-navs { // ============================== NAVIGATIONS
-        display: none;
+    a:nth-of-type(n) {
+      transform: translateX(-100vw);
+      animation: none;
+      transition: 600ms;
+      @include svg-bg;
+      margin: 0.25rem;
     }
-    #nav-left {
-        width: 100vw;
-        height: fit-content;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        @include svg-bg;
-        & > svg {
-            z-index: 10;
-        }
-        a:nth-of-type(n){
-            transform: translateX(-100vw);
-            animation: none;
-            transition: 600ms;
-            @include svg-bg;
-            margin: 0.25rem;
-        }
+  }
+  #mobile-menu-svg {
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin: 0.3rem 0.5rem 0.5rem 0.3rem;
+    transition: 300ms;
+    fill: var(--color1);
+    &:hover {
+      fill: var(--color3);
+      transform: scale(1.1);
+      cursor: pointer;
     }
-    #mobile-menu-svg {
-        display: block;
-        width: 2.2rem; height: 2.2rem;
-        margin: 0.3rem 0.5rem 0.5rem 0.3rem;
-        transition: 300ms;
-        fill: var(--color1);
-        &:hover {
-            fill: var(--color3);
-            transform: scale(1.1);
-            cursor: pointer;
-        }
+  }
+  #nav-right {
+    width: fit-content;
+    height: fit-content;
+    height: fit-content;
+    position: fixed;
+    top: calc(100% - 2.5rem);
+    left: calc(100% - 2.5rem);
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    transform: translateX(0%);
+    margin: 0 1rem 0.5rem 0;
+    cursor: pointer;
+    @include svg-bg;
+  }
+  section {
+    // ============================== SECTIONS
+    &:first-of-type {
+      min-height: 100vh;
+      max-width: 100vw;
+      padding-bottom: 3rem;
     }
-    #nav-right {
-        width: fit-content; height: fit-content;
-        height: fit-content;
-        position: fixed;
-        top: calc(100% - 2.5rem); left: calc(100% - 2.5rem); right: 0; bottom: 0;
-        visibility: hidden;
+    width: auto;
+    height: auto;
+    &:nth-child(odd) {
+      .item:nth-child(1) {
+        flex-direction: column;
+      }
+      .item:nth-child(2) {
+        flex-direction: column-reverse;
+      }
+    }
+    &:nth-child(even) {
+      .item:nth-child(1) {
+        flex-direction: column;
+      }
+      .item:nth-child(2) {
+        flex-direction: column-reverse;
+      }
+    }
+    .item {
+      width: 95%;
+      height: auto;
+      flex-direction: column;
+      .left,
+      .right,
+      div {
+        padding: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
         transform: translateX(0%);
-        margin: 0 1rem 0.5rem 0;
-        cursor: pointer;
-        @include svg-bg;
+        text-align: center;
+        display: flex;
+      }
     }
-    section { // ============================== SECTIONS
-        &:first-of-type {
-            min-height: 100vh; max-width: 100vw;
-            padding-bottom: 3rem;
-        }
-        width: auto; height: auto;
-        &:nth-child(odd) {
-            .item:nth-child(1) {
-                flex-direction: column;
-            }
-            .item:nth-child(2) {
-                flex-direction: column-reverse;
-            }
-        }
-        &:nth-child(even) {
-            .item:nth-child(1) {
-                flex-direction: column;
-            }
-            .item:nth-child(2) {
-                flex-direction: column-reverse;
-            }
-        }
-        .item {
-            width: 95%; height: auto;
-            flex-direction: column;
-            .left, .right, div {
-                padding: 0.5rem 0;
-                display: flex; flex-direction: column;
-                transform: translateX(0%);
-                text-align: center;
-                display: flex;
-            }
-        }
-    }
+  }
 }
