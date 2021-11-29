@@ -24,6 +24,12 @@
       background-color: var(--bgColor0);
     }
   }
+  section {
+    h2 {
+      padding-top: 50px;
+      padding-bottom: 0;
+    }
+  }
   #y-navs {
     // ============================== NAVIGATIONS
     display: none;
