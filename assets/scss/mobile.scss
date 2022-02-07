@@ -118,6 +118,9 @@
         transform: translateX(0%);
         text-align: center;
         display: flex;
+        a > img {
+          margin-top: 10px;
+        }
       }
     }
   }
